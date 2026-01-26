@@ -38,6 +38,13 @@
         email = "47427072+NelsonDane@users.noreply.github.com";
       };
       init.defaultBranch = "main";
+      fetch.prune = true;
+      pull.rebase = true;
+      rebase = {
+        autoStash = true;
+        autoSquash = true;
+        updateRefs = true;
+      };
     };
   };
   programs.gpg.enable = true;
