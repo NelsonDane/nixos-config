@@ -4,6 +4,7 @@
   imports = [
     ../../modules/common/packages.nix
     ./darwin.nix
+    ./desktop.nix
   ];
   # Home Manager configuration
   programs.home-manager.enable = true;

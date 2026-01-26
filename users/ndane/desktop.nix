@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-{
-  home.packages = with pkgs; [
-    xclip
-    wl-clipboard
-  ];
+lib.mkIf pkgs.stdenv.isDarwin {
+  home.packages = with pkgs; [];
 }
