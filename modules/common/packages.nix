@@ -13,6 +13,7 @@
     ncdu
     neovim
     nixfmt
+    vesktop
     vim
     vscode
     zsh-autosuggestions

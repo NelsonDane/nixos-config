@@ -5,6 +5,7 @@
     ../../modules/common/packages.nix
     ./darwin.nix
     ./desktop.nix
+    ./shell.nix
   ];
   # Home Manager configuration
   programs.home-manager.enable = true;
@@ -15,11 +16,7 @@
     then lib.mkForce "/Users/ndane"
     else lib.mkForce "/home/ndane";
 
-  # Shell configuration
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-  };
+  # Env configuration
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
