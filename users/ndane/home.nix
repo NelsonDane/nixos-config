@@ -1,38 +1,45 @@
 { config, pkgs, lib, ... }:
 
 {
-  # imports = [
-    # ../../modules/common/packages.nix
-    # ../../modules/common/shell.nix
-    # ../../modules/common/git.nix
-
-    # (lib.mkIf pkgs.stdenv.isLinux ./desktop.nix)
-    # (lib.mkIf pkgs.stdenv.isDarwin ./darwin.nix)
-    # ./darwin.nix
-  # ];
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-  };
+  imports = [
+    ../../modules/common/packages.nix
+    ./darwin.nix
+  ];
+  # Home Manager configuration
   programs.home-manager.enable = true;
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-  };
+  home.stateVersion = "24.05";
   home.username = "ndane";
   home.homeDirectory =
     if pkgs.stdenv.isDarwin
     then lib.mkForce "/Users/ndane"
     else lib.mkForce "/home/ndane";
 
-  home.stateVersion = "24.05";
-  programs.git.settings = {
+  # Shell configuration
+  programs.zsh = {
     enable = true;
-    userName = "ndane";
-    userEmail = "47427072+NelsonDane@users.noreply.github.com";
-    extraConfig = {
-      github.user = "NelsonDane";
+    enableCompletion = true;
+  };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+  
+  # Git configuration
+  programs.git = {
+    enable = true;
+    signing = {
+      key = "8739A1D9F4ADECB967B4094F1D405F49029EB38E";
+      signByDefault = true;
+    };
+    ignores = [
+      ".DS_Store"
+    ];
+    settings = {
+      user = {
+        name = "Nelson Dane";
+        email = "47427072+NelsonDane@users.noreply.github.com";
+      };
+      init.defaultBranch = "main";
     };
   };
 }

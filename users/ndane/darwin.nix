@@ -1,7 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
-{
-  home.packages = with pkgs; [
-    vim
-  ];
+lib.mkIf pkgs.stdenv.isDarwin {
+  home.packages = with pkgs; [];
 }

@@ -2,10 +2,21 @@
 
 {
   home.packages = with pkgs; [
+    dos2unix
+    fastfetch
+    gh
     git
-    ripgrep
-    fd
+    htop
+    lazygit
+    ncdu
     neovim
-    tmux
+    nixfmt
+    vim
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    # K8s tools
+    kubectl
+    k9s
+    talosctl
   ];
 }
