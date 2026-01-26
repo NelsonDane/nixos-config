@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-darwin, ... }:
+  outputs = { self, nixpkgs, home-manager, nix-darwin, disko, ... }:
   let
     username = "ndane";
   in
@@ -30,6 +30,7 @@
       modules = [
         ./hosts/desktop
         ./hosts/desktop/hardware.nix
+        disko.nixosModules.disko
 
         home-manager.nixosModules.home-manager
         {
