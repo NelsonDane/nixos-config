@@ -43,4 +43,11 @@
       init.defaultBranch = "main";
     };
   };
+  programs.gpg = {
+    enable = true;
+    agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  }
 }

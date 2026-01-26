@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    brave
     dos2unix
     fastfetch
     gh
@@ -12,6 +13,7 @@
     neovim
     nixfmt
     vim
+    vscode
     zsh-autosuggestions
     zsh-syntax-highlighting
     # K8s tools

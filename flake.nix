@@ -27,8 +27,8 @@
   {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      config.allowUnfree = true; # For nvidia drivers
       modules = [
+        ./hosts/default.nix
         ./hosts/desktop
         ./hosts/desktop/hardware.nix
         disko.nixosModules.disko
@@ -46,6 +46,7 @@
     darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
+        ./hosts/default.nix
         ./hosts/macbook
 
         home-manager.darwinModules.home-manager
