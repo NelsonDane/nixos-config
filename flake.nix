@@ -27,6 +27,7 @@
   {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      config.allowUnfree = true; # For nvidia drivers
       modules = [
         ./hosts/desktop
         ./hosts/desktop/hardware.nix
