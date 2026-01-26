@@ -7,6 +7,7 @@
     fastfetch
     gh
     git
+    gnupg
     htop
     lazygit
     ncdu
