@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ../../modules/nixos/services.nix
+    # ../../modules/nixos/services.nix
     ./hardware.nix
     ./disko.nix
-  ]
+  ];
 
   system.stateVersion = "24.05";
   time.timeZone = "America/New_York";
@@ -23,7 +23,7 @@
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
-  }
+  };
 
   # Graphics
   services.xserver.enable = true;
