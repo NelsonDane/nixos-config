@@ -1,12 +1,12 @@
 { pkgs, lib, ... }:
 
 lib.mkIf pkgs.stdenv.isLinux {
-  home.packages = with pkgs; [
-    pinentry-curses # for gpg
-  ];
-  programs.gnupg.agent = {
+  home.packages = with pkgs; [ ];
+
+  # GPG configuration
+  services.gpg-agent = {
     enable = true;
-    enableSSHSupport = true;
-    pinetryFormat = "curses";
+    enableSshSupport = true;
+    pinentryFlavor = "curses";
   };
 }
