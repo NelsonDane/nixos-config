@@ -2,7 +2,6 @@
 
 {
   imports = [
-    # ../../modules/nixos/services.nix
     ./hardware.nix
     ./disko.nix
   ];
@@ -27,7 +26,12 @@
 
   # Graphics
   services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
   programs.niri.enable = true;
+  # Nvidia
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;
 
   services.openssh.enable = true;
 
