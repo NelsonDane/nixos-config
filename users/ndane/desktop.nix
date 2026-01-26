@@ -7,6 +7,6 @@ lib.mkIf pkgs.stdenv.isLinux {
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryFlavor = "curses";
+    pinentryPackage = pkgs.pinentry-curses;
   };
 }
