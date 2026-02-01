@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    act
     brave
     dos2unix
     fastfetch
@@ -9,7 +10,6 @@
     git
     gnupg
     htop
-    lazygit
     ncdu
     neovim
     nixfmt

@@ -37,6 +37,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = ".nixbak";
           home-manager.users.${username} =
             import ./users/${username}/home.nix;
         }
@@ -53,6 +54,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = ".nixbak";
           home-manager.users.${username} =
             import ./users/${username}/home.nix;
         }

@@ -48,4 +48,18 @@
     };
   };
   programs.gpg.enable = true;
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    matchBlocks = {
+      "*" = {
+        forwardAgent = true;
+      };
+      "*github.com" = {
+        user = "git";
+        identityFile = "~/.ssh/github";
+        identitiesOnly = true;
+      };
+    };
+  };
 }
