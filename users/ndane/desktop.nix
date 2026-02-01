@@ -7,6 +7,11 @@ lib.mkIf pkgs.stdenv.isLinux {
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentry.package = pkgs.pinentry-curses;
+  };
+
+  xdg.configFile."niri/config.kdl" = {
+    source = ./niri.kdl;
+    force = true;
   };
 }
