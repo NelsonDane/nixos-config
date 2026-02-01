@@ -16,11 +16,10 @@
     enable = true;
     taps = [];
     brews = [
-        "mole"
+      "mole"
     ];
     casks = [
-        "http-toolkit"
-        "kitty"
+      "http-toolkit"
     ];
   };
 }
