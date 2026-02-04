@@ -8,27 +8,24 @@ _: {
       enable = true;
       strict = true;
     };
-    alejandra.enable = true;
     actionlint.enable = true;
     dos2unix.enable = true;
   };
   settings.excludes = [
     "*.age"
     "*.png"
+    "*.kdl"
     "flake.lock"
   ];
   settings.formatter = {
     deadnix = {
       priority = 1;
     };
-    alejandra = {
+    statix = {
       priority = 2;
     };
-    statix = {
-      priority = 3;
-    };
     nixfmt = {
-      priority = 4;
+      priority = 3;
     };
   };
 }
