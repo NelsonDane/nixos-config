@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{ profile, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -14,7 +13,7 @@
     shellAliases = {
       ls = "ls --color=auto";
       grep = "grep --color=auto";
-      ssh = "kitten ssh";
+      ssh = if (profile != "work") then "kitten ssh" else "ssh";
       ff = "fastfetch";
       neofetch = "fastfetch";
       v = "nvim";
@@ -34,11 +33,12 @@
     enableZshIntegration = true;
     settings = {
       add_newline = true;
+      scan_timeout = 1000;
     };
   };
 
   programs.kitty = {
-    enable = true;
+    enable = profile != "work";
   };
 
   programs.pay-respects.enable = true;
