@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+_: {
   nix.enable = false;
   system.stateVersion = 6;
 
@@ -14,12 +12,11 @@
   # Homebrew packages
   homebrew = {
     enable = true;
-    taps = [];
-    brews = [
-      "mole"
-    ];
+    taps = [ ];
+    brews = [ "mole" ];
     casks = [
       "http-toolkit"
+      "vesktop"
     ];
   };
 }

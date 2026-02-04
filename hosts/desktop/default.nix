@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 {
   imports = [
-    ./hardware.nix
     ./disko.nix
+    ./hardware.nix
     ./niri.nix
   ];
 
@@ -35,7 +34,13 @@
   # User
   users.users.ndane = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "libvirt" "docker" "audio" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "libvirt"
+      "docker"
+      "audio"
+    ];
     hashedPassword = "$6$DwA4Gh5R6yoYOsSV$OKy2T3F/O7woBQcVVDAhkYR62pIhsLxC3Ko7FhbhYb5Yb4CQyYhgTe/7YMth8ScxIbYZ3Lc8lAB0a/AnMuxGT.";
   };
 
@@ -48,6 +53,7 @@
     waybar
     gamescope
     mangohud
+    vesktop
   ];
 
   # Steam
@@ -59,19 +65,20 @@
   };
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [
-        xorg.libXcursor
-	xorg.libXi
-	xorg.libXinerama
-	xorg.libXScrnSaver
-	libpng
-	libpulseaudio
-	libvorbis
-	stdenv.cc.cc.lib
-	libkrb5
-	keyutils
-	mangohud
-      ];
+      extraPkgs =
+        pkgs: with pkgs; [
+          xorg.libXcursor
+          xorg.libXi
+          xorg.libXinerama
+          xorg.libXScrnSaver
+          libpng
+          libpulseaudio
+          libvorbis
+          stdenv.cc.cc.lib
+          libkrb5
+          keyutils
+          mangohud
+        ];
     };
   };
 }
