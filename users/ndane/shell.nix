@@ -21,6 +21,7 @@
       p = "python";
       lg = "lazygit";
       reload = "exec zsh";
+      nix-shell = "nix-shell --run $SHELL";
     };
 
     initContent = ''
@@ -59,6 +60,30 @@
         showRandomTip = false;
         showCommandLog = false;
         nerdFontsVersion = "3";
+        # Rose theme: https://github.com/rose-pine/lazygit/blob/main/themes/rose-pine.yml
+        theme = {
+          activeBorderColor = [
+            "#31748f"
+            "bold"
+          ];
+          inactiveBorderColor = [ "#6e6a86" ];
+          searchingActiveBorderColor = [
+            "#ebbcba"
+            "bold"
+          ];
+          optionsTextColor = [ "#9ccfd8" ];
+          selectedLineBgColor = [ "#31748f" ];
+          inactiveViewSelectedLineBgColor = [
+            "#26233a"
+            "bold"
+          ];
+          cherryPickedCommitFgColor = [ "#1f1d2e" ];
+          cherryPickedCommitBgColor = [ "#ebbcba" ];
+          markedBaseCommitFgColor = [ "#9ccfd8" ];
+          markedBaseCommitBgColor = [ "#f6c177" ];
+          unstagedChangesColor = [ "#eb6f92" ];
+          defaultFgColor = [ "#e0def4" ];
+        };
       };
     };
   };

@@ -42,16 +42,17 @@
       hlsearch = true;
       undofile = true;
       wrap = false;
+      guicursor = "";
     };
 
     # Global leader key
     globals.mapleader = " ";
 
     # Colorscheme
-    colorschemes.catppuccin = {
+    colorschemes.rose-pine = {
       enable = true;
       autoLoad = true;
-      settings.flavor = "mocha";
+      settings.variant = "main";
     };
 
     # Icons

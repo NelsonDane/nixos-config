@@ -19,4 +19,7 @@
     silent = true;
     enableZshIntegration = true;
   };
+
+  # Fonts
+  fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
 }
