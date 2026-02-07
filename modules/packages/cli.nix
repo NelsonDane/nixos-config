@@ -7,6 +7,7 @@
     gh
     htop
     ncdu
+    uv
     # K8s tools
     kubectl
     k9s

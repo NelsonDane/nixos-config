@@ -40,6 +40,11 @@
 
   programs.kitty = {
     enable = profile != "work";
+    themeFile = "rose-pine";
+    settings = {
+      enable_audio_bell = false;
+      font_size = 16;
+    };
   };
 
   programs.pay-respects.enable = true;
