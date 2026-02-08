@@ -25,19 +25,11 @@
     fuzzel
     mako
     wl-clipboard
+    grim
+    slurp
     xwayland-satellite
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
     gnome-keyring
   ];
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
-        user = "greeter";
-      };
-    };
-  };
 }

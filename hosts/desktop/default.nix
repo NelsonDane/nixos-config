@@ -4,6 +4,8 @@
     ./disko.nix
     ./hardware.nix
     ./niri.nix
+    ./theme.nix
+    ./sddm
   ];
 
   system.stateVersion = "24.05";
@@ -50,7 +52,6 @@
     pinentry-curses # for gpg
     pavucontrol
     pamixer
-    waybar
     gamescope
     mangohud
     vesktop

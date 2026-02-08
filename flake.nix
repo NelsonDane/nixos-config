@@ -16,6 +16,8 @@
 
     nix-index-database.url = "github:nix-community/nix-index-database";
 
+    stylix.url = "github:danth/stylix";
+
     treefmt-nix.url = "github:numtide/treefmt-nix";
     systems.url = "github:nix-systems/default";
   };
@@ -32,6 +34,7 @@
       nix-index-database,
       systems,
       nixvim,
+      stylix,
       ...
     }:
     let
@@ -87,6 +90,7 @@
             ./hosts/default.nix
             ./hosts/desktop
             disko.nixosModules.disko
+            stylix.nixosModules.stylix
             { nixpkgs.hostPlatform = "x86_64-linux"; }
           ];
         };
