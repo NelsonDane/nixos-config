@@ -11,9 +11,7 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    (sddm-astronaut.override {
-      embeddedTheme = "black_hole";
-    })
+    (sddm-astronaut.override { embeddedTheme = "black_hole"; })
     kdePackages.qtmultimedia
   ];
 }
