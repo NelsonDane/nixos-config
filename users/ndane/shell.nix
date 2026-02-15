@@ -16,6 +16,7 @@
       ssh = if (profile != "work") then "kitten ssh" else "ssh";
       ff = "fastfetch";
       neofetch = "fastfetch";
+      k = "kubectl";
       v = "nvim";
       c = "clear";
       p = "python";
