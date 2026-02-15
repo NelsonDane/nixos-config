@@ -12,6 +12,7 @@ _: {
   # Homebrew packages
   homebrew = {
     enable = true;
+    onActivation.cleanup = "zap";
     taps = [ ];
     brews = [ "mole" ];
     casks = [
