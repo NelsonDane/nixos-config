@@ -7,6 +7,7 @@
     fastfetch
     gh
     htop
+    just
     ncdu
     uv
     wget
