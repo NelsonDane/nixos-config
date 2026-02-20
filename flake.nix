@@ -8,6 +8,8 @@
 
     nix-darwin.url = "github:LnL7/nix-darwin";
 
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
     disko.url = "github:nix-community/disko";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
@@ -28,6 +30,7 @@
       nixpkgs,
       home-manager,
       nix-darwin,
+      nix-homebrew,
       disko,
       nixos-wsl,
       treefmt-nix,
@@ -61,6 +64,7 @@
       ];
       hmDarwinModule = [
         home-manager.darwinModules.home-manager
+        nix-homebrew.darwinModules.nix-homebrew
         hmCommon
       ];
 

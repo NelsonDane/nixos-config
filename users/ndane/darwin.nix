@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ pinentry_mac ];
+  home.packages = with pkgs; [
+    pinentry_mac
+    httptoolkit
+  ];
 
   # GPG configuration
   services.gpg-agent = {
