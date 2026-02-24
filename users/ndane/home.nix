@@ -29,7 +29,11 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-    ignores = [ ".DS_Store" ];
+    ignores = [
+      ".DS_Store"
+      ".envrc"
+      ".direnv/*"
+    ];
     settings = {
       user = {
         name = "Nelson Dane";
