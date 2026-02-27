@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   services.displayManager.sddm = {
     enable = true;
@@ -7,7 +7,7 @@
     theme = "sddm-astronaut-theme";
   };
   services.xserver.displayManager.setupCommands = ''
-    ${lib.getExe pkgs.xorg.xrandr} --output DP-2 --mode 2560x1440 --rate 144 --primary
+    /run/current-system/sw/bin/xrandr --output DP-2 --mode 2560x1440 --rate 144 --primary
   '';
 
   environment.systemPackages = with pkgs; [

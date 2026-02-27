@@ -5,7 +5,7 @@
     ./hardware.nix
     ./niri.nix
     ./theme.nix
-    ./sddm
+    ./sddm.nix
   ];
 
   system.stateVersion = "24.05";
