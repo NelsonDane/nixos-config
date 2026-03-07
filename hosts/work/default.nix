@@ -4,7 +4,8 @@ _: {
   users.users.ndane.extraGroups = [ "docker" ];
 
   programs.nix-ld.enable = true; # Needed for vscode launching
-  wsl.docker-desktop.enable = true;
+
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
