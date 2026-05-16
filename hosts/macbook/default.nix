@@ -26,8 +26,15 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
-    taps = [ ];
+    taps = [ "TheBoredTeam/boring-notch" ];
     brews = [ "mole" ];
-    casks = [ ];
+    casks = [
+      "emclient"
+      "tinymediamanager"
+      "pgadmin4"
+      "boring-notch"
+      "seafile-client"
+      "iloader"
+    ];
   };
 }

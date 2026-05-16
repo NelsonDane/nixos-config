@@ -5,5 +5,6 @@
     cinny-desktop
     vscode
     vesktop
+    httptoolkit
   ];
 }

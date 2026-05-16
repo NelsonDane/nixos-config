@@ -101,7 +101,7 @@
     # QoL Plugins
     plugins.nvim-autopairs.enable = true;
     plugins.nvim-surround.enable = true;
-    plugins.whitespace.enable = true;
+    # plugins.whitespace.enable = true;
     plugins.comment.enable = true;
     plugins.snacks = {
       enable = true;
