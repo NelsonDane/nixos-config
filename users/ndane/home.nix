@@ -30,6 +30,8 @@
     enable = true;
     lfs.enable = true;
     ignores = [
+      ".codex"
+      ".claude/*"
       ".DS_Store"
       ".envrc"
       ".direnv/*"

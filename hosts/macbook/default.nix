@@ -30,7 +30,6 @@
     brews = [ "mole" ];
     casks = [
       "emclient"
-      "tinymediamanager"
       "pgadmin4"
       "boring-notch"
       "seafile-client"
