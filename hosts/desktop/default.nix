@@ -3,6 +3,7 @@
   imports = [
     ./disko.nix
     ./hardware.nix
+    ./impermanence.nix
     ./niri.nix
     ./theme.nix
     ./sddm.nix
