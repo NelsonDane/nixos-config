@@ -32,8 +32,8 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim/fca03f175902fe899a87872228bf69c1b43a8543";
     };
 
     nix-index-database = {
@@ -42,7 +42,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

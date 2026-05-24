@@ -1,5 +1,6 @@
 # Simple EFI
 # https://github.com/nix-community/disko/blob/master/example/simple-efi.nix
+# https://haseebmajid.dev/posts/2024-07-30-how-i-setup-btrfs-and-luks-on-nixos-using-disko/
 {
   disko.devices = {
     disk = {
@@ -75,4 +76,5 @@
   };
 
   fileSystems."/persist".neededForBoot = true;
+  fileSystems."/home".neededForBoot = true;
 }
