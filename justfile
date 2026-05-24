@@ -8,7 +8,11 @@ gc:
 
 # Targets
 desktop:
-  just switch desktop
+  {{ if os() == "macos" {
+    "nix shell nixpkgs#nixos-rebuild --command nixos-rebuild switch --flake .#desktop --target-host ndane@10.0.2.15 --build-host ndane@10.0.2.15 --sudo --ask-sudo-password"
+  } else {
+    "just switch desktop"
+  }}}
 
 macbook:
   sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild -- switch --flake .#macbook
