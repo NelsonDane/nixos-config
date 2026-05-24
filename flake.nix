@@ -16,6 +16,11 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,6 +62,7 @@
       home-manager,
       nix-darwin,
       nix-homebrew,
+      impermanence,
       disko,
       nixos-wsl,
       treefmt-nix,
@@ -119,6 +125,7 @@
           modules = [
             ./hosts/default.nix
             ./hosts/desktop
+            impermanence.nixosModules.impermanence
             disko.nixosModules.disko
             stylix.nixosModules.stylix
             { nixpkgs.hostPlatform = "x86_64-linux"; }
