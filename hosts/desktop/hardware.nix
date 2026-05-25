@@ -28,6 +28,7 @@
   boot.extraModulePackages = [ ];
 
   networking.useDHCP = lib.mkDefault true;
+  services.resolved.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;

@@ -55,6 +55,7 @@ _: {
     directories = [
       "/var/log"
       "/var/lib/nixos"
+      "/var/lib/NetworkManager"
       "/var/lib/systemd/coredump"
       "/var/db/sudo"
     ];
