@@ -2,6 +2,7 @@
   pkgs,
   lib,
   profile,
+  username,
   ...
 }:
 {
@@ -17,9 +18,9 @@
   # Home Manager configuration
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
-  home.username = "ndane";
+  home.username = username;
   home.homeDirectory =
-    if pkgs.stdenv.isDarwin then lib.mkForce "/Users/ndane" else lib.mkForce "/home/ndane";
+    if pkgs.stdenv.isDarwin then lib.mkForce "/Users/${username}" else lib.mkForce "/home/${username}";
 
   # Nix package cache
   programs.nix-index.enable = true;
@@ -39,11 +40,7 @@
     settings = {
       user = {
         name = "Nelson Dane";
-        email =
-          if (profile == "work") then
-            "ndane@ctconline.com"
-          else
-            "47427072+NelsonDane@users.noreply.github.com";
+        email = "47427072+NelsonDane@users.noreply.github.com";
       };
       init.defaultBranch = "main";
       fetch.prune = true;
@@ -54,6 +51,19 @@
         updateRefs = true;
       };
     };
+    includes = [
+      {
+        condition = "hasconfig:remote.*.url:*ssh.dev.azure.com:v3/**";
+        contents = {
+          user = {
+            name = "Nelson Dane";
+            email = "ndane@ctconline.com";
+          };
+          commit.gpgSign = false;
+          tag.gpgSign = false;
+        };
+      }
+    ];
     # Signing
     signing = lib.mkIf (profile != "work") {
       key = "8739A1D9F4ADECB967B4094F1D405F49029EB38E";
@@ -68,7 +78,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "*" = {
         forwardAgent = true;
       };
@@ -77,9 +87,9 @@
         identityFile = "~/.ssh/github";
         identitiesOnly = true;
       };
-      "*azure.com" = {
+      "ssh.dev.azure.com" = {
         user = "git";
-        identityFile = "~/.ssh/azure";
+        identityFile = "~/.ssh/ctc-azure";
         identitiesOnly = true;
       };
     };

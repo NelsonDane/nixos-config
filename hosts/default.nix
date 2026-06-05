@@ -1,16 +1,36 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  username,
+  config,
+  lib,
+  ...
+}:
 {
   # Nix settings
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.settings.trusted-users = [ "ndane" ];
+  nix = {
+    # GC/Optimise requires nix.enable which can be false on platforms like macOS
+    gc = lib.mkIf config.nix.enable {
+      automatic = true;
+      interval = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    optimise.automatic = config.nix.enable;
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [ username ];
+    };
+  };
+
+  time.timeZone = "America/New_York";
 
   # Set default shell to zsh
   programs.zsh.enable = true;
-  users.users.ndane.shell = pkgs.zsh;
+  users.users.${username}.shell = pkgs.zsh;
 
   # Direnv configuration (temp environments)
   programs.direnv = {

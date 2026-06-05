@@ -73,7 +73,7 @@
       ...
     }:
     let
-      # User and homepath
+      # User
       username = "ndane";
       userHome = import ./users/${username}/home.nix;
 
@@ -104,14 +104,20 @@
       mkNixos =
         { modules, profile }:
         nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit username; };
           modules =
-            modules ++ [ (_: { home-manager.extraSpecialArgs = { inherit profile; }; }) ] ++ hmNixosModule;
+            modules
+            ++ [ (_: { home-manager.extraSpecialArgs = { inherit profile username; }; }) ]
+            ++ hmNixosModule;
         };
       mkDarwin =
         { modules, profile }:
         nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit username; };
           modules =
-            modules ++ [ (_: { home-manager.extraSpecialArgs = { inherit profile; }; }) ] ++ hmDarwinModule;
+            modules
+            ++ [ (_: { home-manager.extraSpecialArgs = { inherit profile username; }; }) ]
+            ++ hmDarwinModule;
         };
 
       # Formatting
@@ -125,8 +131,8 @@
           modules = [
             ./hosts/default.nix
             ./hosts/desktop
-            impermanence.nixosModules.impermanence
             disko.nixosModules.disko
+            impermanence.nixosModules.impermanence
             stylix.nixosModules.stylix
             { nixpkgs.hostPlatform = "x86_64-linux"; }
           ];

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
   imports = [
     ./disko.nix
@@ -10,7 +10,6 @@
   ];
 
   system.stateVersion = "24.05";
-  time.timeZone = "America/New_York";
 
   # Boot
   boot.loader.systemd-boot.enable = true;
@@ -35,7 +34,7 @@
   services.openssh.enable = true;
 
   # User
-  users.users.ndane = {
+  users.users.${username} = {
     isNormalUser = true;
     extraGroups = [
       "wheel"

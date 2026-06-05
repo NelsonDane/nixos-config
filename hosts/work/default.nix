@@ -1,8 +1,12 @@
-_: {
+{ username, ... }:
+{
   wsl.enable = true;
-  wsl.defaultUser = "ndane";
-  users.users.ndane.extraGroups = [ "docker" ];
-
+  wsl.defaultUser = username;
+  users.users.${username} = {
+    isNormalUser = true;
+    uid = 1001;
+    extraGroups = [ "docker" ];
+  };
   programs.nix-ld.enable = true; # Needed for vscode launching
 
   virtualisation.docker.enable = true;
