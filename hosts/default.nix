@@ -12,7 +12,7 @@
     # GC/Optimise requires nix.enable which can be false on platforms like macOS
     gc = lib.mkIf config.nix.enable {
       automatic = true;
-      interval = "weekly";
+      dates = "weekly";
       options = "--delete-older-than 7d";
     };
     optimise.automatic = config.nix.enable;

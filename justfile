@@ -22,4 +22,4 @@ work:
 
 # Shared helpers
 switch target:
-  sudo nixos-rebuild switch --upgrade --flake .#{{target}}
+  sudo nixos-rebuild switch --flake .#{{target}}
