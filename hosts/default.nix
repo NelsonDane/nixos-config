@@ -1,21 +1,15 @@
-{
-  pkgs,
-  username,
-  config,
-  lib,
-  ...
-}:
+{ pkgs, username, lib, ... }:
 {
   # Nix settings
   nixpkgs.config.allowUnfree = true;
   nix = {
-    # GC/Optimise requires nix.enable which can be false on platforms like macOS
-    gc = lib.mkIf config.nix.enable {
+    enable = true;
+    # Garbage collection + store optimise
+    gc = {
       automatic = true;
-      dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    optimise.automatic = config.nix.enable;
+    optimise.automatic = true;
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -26,6 +20,7 @@
     };
   };
 
+  # Timezone
   time.timeZone = "America/New_York";
 
   # Set default shell to zsh

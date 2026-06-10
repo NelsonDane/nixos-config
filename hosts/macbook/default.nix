@@ -1,9 +1,7 @@
 { pkgs, username, ... }:
 {
-  nix.enable = false;
-  system.stateVersion = 6;
-
   # System settings
+  system.stateVersion = 6;
   networking.hostName = "macbook";
   system.primaryUser = username;
   system.defaults.dock.autohide = true;
