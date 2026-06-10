@@ -33,7 +33,7 @@
 
     nixvim = {
       # url = "github:nix-community/nixvim";
-      url = "github:nix-community/nixvim/fca03f175902fe899a87872228bf69c1b43a8543";
+      url = "github:nix-community/nixvim/e9fbbd56eab78751ba4c166c31a1667042528ced";
     };
 
     nix-index-database = {
