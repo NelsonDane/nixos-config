@@ -1,25 +1,27 @@
+# Env vars
+export NH_SHOW_ACTIVATION_LOGS := "1"
+
 # Chores
 default:
   @just --list
 
-gc:
-  sudo nix-collect-garbage --delete-old
-  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
+clean:
+  nh clean all --optimise
 
 # Targets
+[working-directory: "iso"]
+iso:
+  nh os build-image --image-variant iso .#iso
+
 desktop:
-  {{ if os() == "macos" {
-    "nix shell nixpkgs#nixos-rebuild --command nixos-rebuild switch --flake .#desktop --target-host ndane@10.0.2.15 --build-host ndane@10.0.2.15 --sudo --ask-sudo-password"
-  } else {
-    "just switch desktop"
-  }}}
+  just switch desktop
 
 macbook:
-  sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild -- switch --flake .#macbook
+  nh darwin switch .#macbook
 
 work:
   just switch work
 
 # Shared helpers
 switch target:
-  sudo nixos-rebuild switch --flake .#{{target}}
+  nh os switch .#{{target}}

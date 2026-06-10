@@ -6,6 +6,7 @@
     gh
     htop
     just
+    nh
     ncdu
     uv
     wget
