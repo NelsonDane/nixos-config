@@ -1,5 +1,4 @@
-{ username, ... }:
-{
+{ username, ... }: {
   wsl.enable = true;
   wsl.defaultUser = username;
   users.users.${username} = {

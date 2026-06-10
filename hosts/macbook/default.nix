@@ -1,5 +1,4 @@
-{ pkgs, username, ... }:
-{
+{ pkgs, username, ... }: {
   # System settings
   system.stateVersion = 6;
   networking.hostName = "macbook";

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   # Fonts
   fonts.packages = with pkgs; [
     noto-fonts-color-emoji

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   # Neovim config
   programs.nixvim = {
     enable = true;
