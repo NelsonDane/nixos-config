@@ -137,6 +137,17 @@
           ];
         };
 
+        nas = mkNixos {
+          profile = "nas";
+          modules = [
+            ./hosts/default.nix
+            ./hosts/nas
+            disko.nixosModules.disko
+            impermanence.nixosModules.impermanence
+            { nixpkgs.hostPlatform = "x86_64-linux"; }
+          ];
+        };
+
         work = mkNixos {
           profile = "work";
           modules = [
