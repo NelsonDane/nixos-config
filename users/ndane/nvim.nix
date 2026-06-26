@@ -7,7 +7,7 @@
     vimAlias = true;
     vimdiffAlias = true;
     waylandSupport = pkgs.stdenv.isLinux;
-    nixpkgs.useGlobalPkgs = true;
+    nixpkgs.useGlobalPackages = true;
 
     # Performance
     performance = {
@@ -100,7 +100,7 @@
     # QoL Plugins
     plugins.nvim-autopairs.enable = true;
     plugins.nvim-surround.enable = true;
-    # plugins.whitespace.enable = true;
+    plugins.whitespace.enable = true;
     plugins.comment.enable = true;
     plugins.snacks = {
       enable = true;
@@ -109,9 +109,9 @@
     plugins.todo-comments.enable = true;
 
     # LSP
-    plugins.lspconfig = {
+    plugins.lsp = {
       enable = true;
-      inlayHints.enable = true;
+      inlayHints = true;
       servers = {
         ts_ls.enable = true; # TypeScript
         pylsp.enable = true; # Python

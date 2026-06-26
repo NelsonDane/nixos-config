@@ -1,4 +1,9 @@
 { pkgs, username, ... }: {
+  imports = [
+    ./dock.nix
+    ./homebrew.nix
+  ];
+
   # System settings
   system.stateVersion = 6;
   networking.hostName = "macbook";
@@ -12,25 +17,4 @@
     docker
     docker-compose
   ];
-
-  # Homebrew
-  nix-homebrew = {
-    enable = true;
-    enableRosetta = true;
-    user = username;
-    mutableTaps = true; # Required for some reason: https://github.com/zhaofengli/nix-homebrew/issues/53
-  };
-  homebrew = {
-    enable = true;
-    onActivation.cleanup = "zap";
-    taps = [ "TheBoredTeam/boring-notch" ];
-    brews = [ "mole" ];
-    casks = [
-      "emclient"
-      "pgadmin4"
-      "boring-notch"
-      "seafile-client"
-      "iloader"
-    ];
-  };
 }
