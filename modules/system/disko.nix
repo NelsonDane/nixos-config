@@ -1,19 +1,17 @@
 # Simple EFI
 # https://github.com/nix-community/disko/blob/master/example/simple-efi.nix
 # https://haseebmajid.dev/posts/2024-07-30-how-i-setup-btrfs-and-luks-on-nixos-using-disko/
-{ lib, ... }: {
-  options = {
-    diskID = lib.mkOption {
-      type = lib.types.str;
-      description = "The ID of the disk to partition and format. This should be the filename of a symlink in /dev/disk/by-id/.";
-    };
+{ config, lib, ... }: {
+  options.disko.diskID = lib.mkOption {
+    type = lib.types.str;
+    description = "The ID of the disk to partition and format. This should be the filename of a symlink in /dev/disk/by-id/.";
   };
 
   config = {
     disko.devices = {
       disk = {
         main = {
-          device = "/dev/disk/by-id/${diskID}";
+          device = "/dev/disk/by-id/${config.disko.diskID}";
           type = "disk";
           content = {
             type = "gpt";
