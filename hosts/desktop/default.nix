@@ -1,12 +1,15 @@
 { pkgs, username, ... }: {
   imports = [
-    ./disko.nix
+    # (import ../../modules/system/disko.nix) { diskID = "nvme-Samsung_SSD_970_EVO_Plus_2TB_S6S2NS0W208794D"; }
+    ../../modules/system/disko.nix
     ./hardware.nix
-    ./impermanence.nix
+    ../../modules/system/impermanence.nix
     ./niri.nix
     ./theme.nix
     ./sddm.nix
   ];
+  # Set disk ID
+  disko.diskID = "nvme-Samsung_SSD_970_EVO_Plus_2TB_S6S2NS0W208794D";
 
   system.stateVersion = "24.05";
 
