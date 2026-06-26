@@ -1,5 +1,6 @@
 { pkgs, username, ... }: {
   imports = [
+    ./linux-builder.nix
     ./dock.nix
     ./homebrew.nix
   ];
