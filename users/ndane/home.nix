@@ -13,7 +13,12 @@
   ]
   ++ lib.optionals (profile == "desktop") [ ./desktop.nix ]
   ++ lib.optionals (profile == "macbook") [ ./darwin.nix ]
-  ++ lib.optionals (profile != "work") [ ../../modules/packages/gui.nix ];
+  ++ lib.optionals (
+    !builtins.elem profile [
+      "work"
+      "nas"
+    ]
+  ) [ ../../modules/packages/gui.nix ];
 
   # Home Manager configuration
   programs.home-manager.enable = true;

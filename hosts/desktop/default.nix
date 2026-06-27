@@ -1,6 +1,5 @@
 { pkgs, username, ... }: {
   imports = [
-    # (import ../../modules/system/disko.nix) { diskID = "nvme-Samsung_SSD_970_EVO_Plus_2TB_S6S2NS0W208794D"; }
     ../../modules/system/disko.nix
     ./hardware.nix
     ../../modules/system/impermanence.nix
