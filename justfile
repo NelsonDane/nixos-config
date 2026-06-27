@@ -18,7 +18,6 @@ desktop:
 
 nas:
   just switch nas
-  # NIX_SSHOPTS="-i ~/.ssh/nas" nh os switch .#nas --target-host ndane@10.0.2.20 --build-host ndane@10.0.2.20
 
 macbook:
   nh darwin switch .#macbook
