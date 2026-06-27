@@ -205,7 +205,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-sh-at-startup "swaybg -m fill -i $HOME/GitHub/nixos-config/modules/background-dark.jpg"
+spawn-sh-at-startup "swaybg -m fill -i $HOME/GitHub/nixos-config/modules/wallpapers/background-dark.jpg"
 spawn-sh-at-startup "swayidle -w"
 
 hotkey-overlay {
