@@ -22,7 +22,7 @@
 
   # Home Manager configuration
   programs.home-manager.enable = true;
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.11";
   home.username = username;
   home.homeDirectory =
     if pkgs.stdenv.isDarwin then lib.mkForce "/Users/${username}" else lib.mkForce "/home/${username}";

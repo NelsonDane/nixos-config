@@ -6,7 +6,7 @@
     user = username;
     mutableTaps = true; # Required for some reason: https://github.com/zhaofengli/nix-homebrew/issues/53
     trust = {
-      casks = [ "boring-notch" ];
+      casks = [ "TheBoredTeam/boring-notch/boring-notch" ];
     };
   };
   homebrew = {
