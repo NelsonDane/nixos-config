@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
   westonIni = pkgs.writeText "weston-sddm.ini" ''
     [libinput]
@@ -23,7 +28,8 @@ let
     name=DP-2
     mode=preferred
   '';
-in {
+in
+{
   services.displayManager.sddm = {
     enable = true;
     wayland = {
