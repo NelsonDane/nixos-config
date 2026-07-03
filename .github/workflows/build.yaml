@@ -22,10 +22,16 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest]
         hosts: [desktop, nas, work, macbook]
-        exclude:
-          - os: macos-latest
-            hosts: [desktop, nas, work]
+        # include/exclude don't support arrays
+        # https://github.com/orgs/community/discussions/7835
+        include:
           - os: ubuntu-latest
+            hosts: desktop
+          - os: ubuntu-latest
+            hosts: nas
+          - os: ubuntu-latest
+            hosts: work
+          - os: macos-latest
             hosts: macbook
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
