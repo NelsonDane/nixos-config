@@ -1,0 +1,40 @@
+name: Nix Build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+      branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  build:
+    name: Nix Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+        hosts: [desktop, nas, work, macbook]
+        exclude:
+          - os: macos-latest
+            hosts: [desktop, nas, work]
+          - os: ubuntu-latest
+            hosts: [macbook]
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@v31
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - name: Nix Check
+        run: nix flake check
+      - name: Nix Build
+        run: nix build .#${{ matrix.hosts }}
