@@ -1,4 +1,4 @@
-_: {
+{ config, ... }: {
   # Much thanks to:
   # https://github.com/Swarsel/.dotfiles/blob/main/modules/nixos/common/impermanence.nix
   # https://notashelf.dev/posts/impermanence
@@ -55,10 +55,11 @@ _: {
     directories = [
       "/var/log"
       "/var/lib/nixos"
-      "/var/lib/NetworkManager"
       "/var/lib/systemd/coredump"
       "/var/db/sudo"
-    ];
+    ]
+    ++ (if config.networking.networkmanager.enable then [ "/var/lib/NetworkManager" ] else [ ])
+    ++ (if config.services.unifi.enable then [ "/var/lib/unifi" ] else [ ]);
     files = [
       "/etc/machine-id"
       # needed for ssh
