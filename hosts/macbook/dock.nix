@@ -13,7 +13,7 @@
         { app = "/System/Applications/Utilities/Activity Monitor.app"; }
         { app = "/Users/${username}/Applications/Home Manager Apps/Visual Studio Code.app"; }
         { app = "/Users/${username}/Applications/Home Manager Apps/Kitty.app"; }
-        { app = "/Users/${username}/Applications/Home Manager Apps/Vesktop.app"; }
+        { app = "/Applications/Nix Apps/Vesktop.app"; }
       ];
     };
   };

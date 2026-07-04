@@ -1,5 +1,6 @@
 { pkgs, username, ... }: {
   imports = [
+    ../../modules/packages/discord.nix
     ../../modules/system/disko.nix
     ./hardware.nix
     ../../modules/system/impermanence.nix
@@ -55,8 +56,10 @@
     pamixer
     gamescope
     mangohud
-    vesktop
   ];
+
+  # Discord
+  discord.gameDetect = true;
 
   # Steam
   programs.gamemode.enable = true;

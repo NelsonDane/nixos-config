@@ -1,5 +1,6 @@
 { pkgs, username, ... }: {
   imports = [
+    ../../modules/packages/discord.nix
     ./linux-builder.nix
     ./dock.nix
     ./homebrew.nix
