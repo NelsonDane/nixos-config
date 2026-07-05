@@ -5,6 +5,7 @@
     ../../modules/system/impermanence.nix
     ./unifi.nix
     ./nfs.nix
+    ./nginx.nix
     ./zfs.nix
   ];
   # Bootloader
@@ -13,6 +14,9 @@
 
   # Set disk ID
   disko.diskID = "usb-JMicron_Tech_DD56419884E16-0:0";
+
+  # Age settings
+  age.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFrninRYQQqXEW794XhWUos1+64Aptz4OGWjTxq/tSm3";
 
   # User
   users.users.${username} = {

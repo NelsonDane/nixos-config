@@ -1,4 +1,8 @@
 { pkgs, username, ... }: {
+  imports = [
+    ../modules/packages/cli.nix
+    ../modules/system/age.nix
+  ];
   # Nix settings
   nixpkgs.config.allowUnfree = true;
   nix = {

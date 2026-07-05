@@ -9,7 +9,6 @@
   imports = [
     ./shell.nix
     ./nvim.nix
-    ../../modules/packages/cli.nix
   ]
   ++ lib.optionals (profile == "desktop") [ ./desktop.nix ]
   ++ lib.optionals (profile == "macbook") [ ./darwin.nix ]

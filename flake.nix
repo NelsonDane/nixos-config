@@ -4,6 +4,13 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    agenix.url = "github:ryantm/agenix";
+
+    agenix-rekey = {
+      url = "github:oddlama/agenix-rekey";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -58,6 +65,8 @@
     {
       self,
       nixpkgs,
+      agenix,
+      agenix-rekey,
       home-manager,
       nix-darwin,
       nix-homebrew,
@@ -92,30 +101,34 @@
       hmNixosModule = [
         home-manager.nixosModules.home-manager
         hmCommon
+        agenix.nixosModules.default
+        agenix-rekey.nixosModules.default
       ];
       hmDarwinModule = [
         home-manager.darwinModules.home-manager
         nix-homebrew.darwinModules.nix-homebrew
         hmCommon
+        agenix.nixosModules.default
+        agenix-rekey.nixosModules.default
       ];
 
       # Functions to create NixOS and Darwin systems
       mkNixos =
         { modules, profile }:
         nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit username; };
+          specialArgs = { inherit username agenix-rekey; };
           modules =
             modules
-            ++ [ (_: { home-manager.extraSpecialArgs = { inherit profile username; }; }) ]
+            ++ [ (_: { home-manager.extraSpecialArgs = { inherit profile username agenix-rekey; }; }) ]
             ++ hmNixosModule;
         };
       mkDarwin =
         { modules, profile }:
         nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit username; };
+          specialArgs = { inherit username agenix-rekey; };
           modules =
             modules
-            ++ [ (_: { home-manager.extraSpecialArgs = { inherit profile username; }; }) ]
+            ++ [ (_: { home-manager.extraSpecialArgs = { inherit profile username agenix-rekey; }; }) ]
             ++ hmDarwinModule;
         };
 
@@ -168,6 +181,12 @@
             { nixpkgs.hostPlatform = "aarch64-darwin"; }
           ];
         };
+      };
+
+      agenix-rekey = agenix-rekey.configure {
+        userFlake = self;
+        inherit (self) nixosConfigurations;
+        inherit (self) darwinConfigurations;
       };
 
       # Formatting

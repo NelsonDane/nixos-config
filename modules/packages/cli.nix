@@ -1,9 +1,8 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     curl
     dos2unix
     fastfetch
-    gh
     htop
     just
     nh
