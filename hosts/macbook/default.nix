@@ -21,4 +21,7 @@
     docker
     docker-compose
   ];
+
+  # Disable darwin uninstaller (https://github.com/nix-darwin/nix-darwin/issues/1817)
+  system.tools.darwin-uninstaller.enable = false;
 }

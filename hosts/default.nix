@@ -52,4 +52,12 @@
 
   # Fonts
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
+
+  # Disable docs
+  documentation = {
+    enable = false;
+    doc.enable = false;
+    info.enable = false;
+    man.enable = false;
+  };
 }
