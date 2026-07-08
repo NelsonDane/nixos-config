@@ -28,7 +28,7 @@ jobs:
       - uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      - uses: DeterminateSystems/magic-nix-cache-action@c2f46a0afa5f95fd4c184a533afd280c68cf63ff # 0.1.6
+      - uses: DeterminateSystems/magic-nix-cache-action@908b263ff629f4cc17666315b7fd3ec127c6244d # v14
       - name: Nix Darwin Build
         if: matrix.os == 'macos-latest'
         run: |
