@@ -17,6 +17,9 @@ permissions: {}
 jobs:
   check:
     name: Nix Check
+    permissions:
+      id-token: write # Needed by magic-nix-cache-action
+      contents: read # Read contents
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
