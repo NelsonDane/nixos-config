@@ -3,6 +3,7 @@
     ../../modules/system/disko.nix
     ./hardware.nix
     ../../modules/system/impermanence.nix
+    ./ha.nix
     ./unifi.nix
     ./nfs.nix
     ./nginx.nix

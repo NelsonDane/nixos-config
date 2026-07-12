@@ -5,7 +5,7 @@ let
     "opnsense" = "https://10.0.2.1:443";
     "datto" = "https://10.0.2.5:8006";
     "unifi" = "https://localhost:8443";
-    "ha" = "http://10.0.2.45:8123";
+    "ha" = "http://10.0.2.20:8123";
     "*.cluster" = "http://10.0.2.50:80";
   };
 in
