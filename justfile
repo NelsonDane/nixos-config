@@ -11,7 +11,7 @@ clean:
 # Targets
 [working-directory: "iso"]
 iso:
-  nh os build-image --image-variant iso .#iso
+  nh os build-image --image-variant iso .#iso --hostname nixos
 
 desktop:
   just switch desktop

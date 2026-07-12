@@ -1,4 +1,8 @@
 { pkgs, username, ... }: {
+  imports = [
+    ../modules/packages/cli.nix
+    ../modules/system/age.nix
+  ];
   # Nix settings
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -48,4 +52,12 @@
 
   # Fonts
   fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
+
+  # Disable docs
+  documentation = {
+    enable = false;
+    doc.enable = false;
+    info.enable = false;
+    man.enable = false;
+  };
 }

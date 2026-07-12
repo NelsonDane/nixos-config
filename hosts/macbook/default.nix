@@ -5,6 +5,8 @@
     ./dock.nix
     ./homebrew.nix
   ];
+  # Age settings
+  age.hostPubkey = "age1yubikey1qdqlzzmfggrcd22747urjfdj74sgahju4gv3czmyc8497juu6pakgs8u3m5";
 
   # System settings
   system.stateVersion = 6;
@@ -19,4 +21,7 @@
     docker
     docker-compose
   ];
+
+  # Disable darwin uninstaller (https://github.com/nix-darwin/nix-darwin/issues/1817)
+  system.tools.darwin-uninstaller.enable = false;
 }
