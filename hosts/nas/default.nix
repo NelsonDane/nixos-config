@@ -28,6 +28,7 @@
     ];
     hashedPassword = "$6$DwA4Gh5R6yoYOsSV$OKy2T3F/O7woBQcVVDAhkYR62pIhsLxC3Ko7FhbhYb5Yb4CQyYhgTe/7YMth8ScxIbYZ3Lc8lAB0a/AnMuxGT.";
   };
+  security.sudo.wheelNeedsPassword = false;
 
   # Network
   networking.firewall.enable = true;

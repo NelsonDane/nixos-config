@@ -57,6 +57,7 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/var/db/sudo"
+      "/var/lib/home-assistant"
     ]
     ++ (if config.networking.networkmanager.enable then [ "/var/lib/NetworkManager" ] else [ ])
     ++ (if config.services.unifi.enable then [ "/var/lib/unifi" ] else [ ]);
