@@ -3,10 +3,7 @@
     ../../modules/system/disko.nix
     ./hardware.nix
     ../../modules/system/impermanence.nix
-    ./ha.nix
-    ./unifi.nix
     ./nfs.nix
-    ./nginx.nix
     ./zfs.nix
   ];
   # Bootloader
@@ -48,7 +45,7 @@
       address = "10.0.2.1";
       interface = "enp1s0";
     };
-    nameservers = [ "10.0.2.3" ];
+    nameservers = [ "10.0.2.1" ];
   };
 
   # SSH
