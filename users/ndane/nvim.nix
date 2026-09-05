@@ -6,7 +6,7 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    waylandSupport = pkgs.stdenv.isLinux;
+    waylandSupport = pkgs.stdenv.hostPlatform.isLinux;
     nixpkgs.useGlobalPackages = true;
 
     # Performance
