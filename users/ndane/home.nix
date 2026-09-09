@@ -24,7 +24,10 @@
   home.stateVersion = "25.11";
   home.username = username;
   home.homeDirectory =
-    if pkgs.stdenv.hostPlatform.isDarwin then lib.mkForce "/Users/${username}" else lib.mkForce "/home/${username}";
+    if pkgs.stdenv.hostPlatform.isDarwin then
+      lib.mkForce "/Users/${username}"
+    else
+      lib.mkForce "/home/${username}";
 
   # Nix package cache
   programs.nix-index.enable = true;

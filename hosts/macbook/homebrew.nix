@@ -18,6 +18,7 @@
       "pgadmin4"
       "boring-notch"
       "seafile-client"
+      "tidal"
       "readdle-spark"
     ];
   };
