@@ -24,7 +24,8 @@ macbook:
   nh darwin switch .#macbook
 
 work:
-  just switch work
+  # needed to pick up root cert outside repo
+  nh os switch .#work -- --impure
 
 # Shared helpers
 switch target:
