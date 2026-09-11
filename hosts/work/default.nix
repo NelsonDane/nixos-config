@@ -18,6 +18,13 @@ in
   };
   programs.nix-ld.enable = true; # Needed for vscode launching
 
+  environment.systemPackages = with pkgs; [
+    azure-functions-core-tools
+    dotnet-sdk_8
+    uv
+    python313
+  ];
+
   virtualisation.docker.enable = true;
 
   security.pki.certificates = lib.optional (builtins.pathExists ctcRootCa) (
