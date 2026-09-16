@@ -1,4 +1,10 @@
-{ pkgs, username, ... }: {
+{
+  pkgs,
+  lib,
+  username,
+  ...
+}:
+{
   imports = [
     ../modules/packages/cli.nix
     ../modules/system/age.nix
@@ -14,7 +20,8 @@
     };
     optimise.automatic = true;
     settings = {
-      auto-optimise-store = true;
+      # This option causes issues on APFS, so disable on Darwin
+      auto-optimise-store = lib.mkIf (!pkgs.stdenv.hostPlatform.isDarwin) true;
       experimental-features = [
         "nix-command"
         "flakes"
