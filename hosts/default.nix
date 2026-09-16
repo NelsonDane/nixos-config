@@ -13,6 +13,8 @@
   nixpkgs.config.allowUnfree = true;
   nix = {
     enable = true;
+    # Use Lix
+    package = pkgs.lixPackageSets.stable.lix;
     # Garbage collection + store optimise
     gc = {
       automatic = true;
