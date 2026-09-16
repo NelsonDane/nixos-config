@@ -19,6 +19,7 @@ in
   programs.nix-ld.enable = true; # Needed for vscode launching
 
   environment.systemPackages = with pkgs; [
+    azure-cli
     azure-functions-core-tools
     dotnet-sdk_8
     uv
