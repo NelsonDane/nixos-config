@@ -170,6 +170,12 @@
             { nixpkgs.hostPlatform = "x86_64-linux"; }
           ];
         };
+
+        iso = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit nixpkgs; };
+          modules = [ ./hosts/iso.nix ];
+        };
       };
 
       darwinConfigurations = {
