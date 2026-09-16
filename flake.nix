@@ -23,8 +23,6 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
-    nix-linux-builder.url = "github:input-output-hk/nix-linux-builder";
-
     impermanence = {
       url = "github:nix-community/impermanence";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -72,7 +70,6 @@
       home-manager,
       nix-darwin,
       nix-homebrew,
-      nix-linux-builder,
       impermanence,
       disko,
       nixos-wsl,
@@ -110,7 +107,6 @@
       hmDarwinModule = [
         home-manager.darwinModules.home-manager
         nix-homebrew.darwinModules.nix-homebrew
-        nix-linux-builder.darwinModules.default
         hmCommon
         agenix.nixosModules.default
         agenix-rekey.nixosModules.default
