@@ -502,24 +502,6 @@
         "type": "github"
       }
     },
-    "nix-linux-builder": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1778050539,
-        "narHash": "sha256-iSh5m+RmPW+5WcB+ZByK5ya/8euQsGXhuPRYVLSHV9E=",
-        "owner": "input-output-hk",
-        "repo": "nix-linux-builder",
-        "rev": "65ecc7687e0df4b3e634e3e026f8e7822a961800",
-        "type": "github"
-      },
-      "original": {
-        "owner": "input-output-hk",
-        "repo": "nix-linux-builder",
-        "type": "github"
-      }
-    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -560,22 +542,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1767313136,
-        "narHash": "sha256-16KkgfdYqjaeRGBaYsNrhPRRENs0qzkQVUooNHtoy2w=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ac62194c3917d5f474c1a844b6fd6da2db95077d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1788404924,
         "narHash": "sha256-lhEhY8X5EgkQ/eg6IFz4cc8jRuSYSvnxx1al7d1dvZ0=",
         "owner": "NixOS",
@@ -590,7 +556,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1787631388,
         "narHash": "sha256-vMiXptXarfSdJb1Gkc+FYVOAibuBRj7qxGa8z68q1Uw=",
@@ -609,7 +575,7 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts_2",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "systems": "systems_2"
       },
       "locked": {
@@ -684,9 +650,8 @@
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nix-index-database": "nix-index-database",
-        "nix-linux-builder": "nix-linux-builder",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "stylix": "stylix",
         "systems": "systems_4",

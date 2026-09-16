@@ -1,4 +1,10 @@
-{ pkgs, lib, nixpkgs, ... }: {
+{
+  pkgs,
+  lib,
+  nixpkgs,
+  ...
+}:
+{
   # Minimal ISO image
   image.modules.iso = "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix";
   boot.zfs.forceImportRoot = false;
