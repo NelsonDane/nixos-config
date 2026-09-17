@@ -1,14 +1,11 @@
 { pkgs, username, ... }: {
   imports = [
     ../../modules/packages/discord.nix
+    ../../modules/system/git-signing.nix
     ./linux-builder.nix
     ./dock.nix
     ./homebrew.nix
-    ./rosetta.nix
   ];
-  # Age settings
-  age.hostPubkey = "age1yubikey1qdqlzzmfggrcd22747urjfdj74sgahju4gv3czmyc8497juu6pakgs8u3m5";
-
   # System settings
   system.stateVersion = 6;
   networking.hostName = "macbook";

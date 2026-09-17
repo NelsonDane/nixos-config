@@ -78,14 +78,23 @@
       }
     ];
     # Signing
-    signing = lib.mkIf (profile != "work") {
-      key = "8739A1D9F4ADECB967B4094F1D405F49029EB38E";
-      signByDefault = true;
-    };
+    signing =
+      lib.mkIf
+        (builtins.elem profile [
+          "desktop"
+          "macbook"
+        ])
+        {
+          format = "ssh";
+          key = "~/.ssh/signing_ed25519";
+          signByDefault = true;
+          allowedSigners =
+            let
+              signingPub = lib.strings.trim (builtins.readFile ../../secrets/signing_ed25519.pub);
+            in
+            "47427072+NelsonDane@users.noreply.github.com namespaces=\"git\" ${signingPub}";
+        };
   };
-
-  # GPG configuration
-  programs.gpg.enable = profile != "work";
 
   # SSH Keys
   programs.ssh = {

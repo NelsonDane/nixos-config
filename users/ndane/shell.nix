@@ -23,10 +23,6 @@
       reload = "exec zsh";
       nix-shell = "nix-shell --run $SHELL";
     };
-
-    initContent = ''
-      export GPG_TTY=$(tty)
-    '';
   };
 
   programs.starship = {

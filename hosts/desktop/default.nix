@@ -4,6 +4,7 @@
     ../../modules/system/disko.nix
     ./hardware.nix
     ../../modules/system/impermanence.nix
+    ../../modules/system/git-signing.nix
     ./niri.nix
     ./theme.nix
     ./sddm.nix
@@ -50,8 +51,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    gnupg
-    pinentry-curses # for gpg
     pavucontrol
     pamixer
     gamescope

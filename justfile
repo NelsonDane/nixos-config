@@ -26,6 +26,9 @@ work:
   # needed to pick up root cert outside repo
   nh os switch .#work -- --impure
 
+rekey:
+  nix shell nixpkgs#age-plugin-yubikey -c nix run .#agenix-rekey.aarch64-darwin.rekey -- -a
+
 # Shared helpers
 switch target:
   nh os switch .#{{target}}
