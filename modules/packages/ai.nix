@@ -5,6 +5,7 @@
     extraPackages = with pkgs; [
       lsof
       ripgrep
+      uv
     ];
     settings = {
       plugin = [ "superpowers@git+https://github.com/obra/superpowers.git" ];
@@ -21,11 +22,8 @@
     enable = true;
     servers = {
       nix = {
-        command = "nix";
-        args = [
-          "run"
-          "github:utensils/mcp-nixos"
-        ];
+        command = "uvx";
+        args = [ "mcp-nixos" ];
       };
     };
   };
