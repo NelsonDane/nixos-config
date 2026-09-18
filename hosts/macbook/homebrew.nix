@@ -1,25 +1,27 @@
-{ username, ... }: {
-  # https://github.com/zhaofengli/nix-homebrew
-  nix-homebrew = {
-    enable = true;
-    enableRosetta = true;
-    user = username;
-    mutableTaps = true; # Required for some reason: https://github.com/zhaofengli/nix-homebrew/issues/53
-    trust = {
-      casks = [ "TheBoredTeam/boring-notch/boring-notch" ];
+{ config, ... }: {
+  flake.modules.darwin.macbook-homebrew = _: {
+    # https://github.com/zhaofengli/nix-homebrew
+    nix-homebrew = {
+      enable = true;
+      enableRosetta = true;
+      user = config.people.primaryUsername;
+      mutableTaps = true; # Required for some reason: https://github.com/zhaofengli/nix-homebrew/issues/53
+      trust = {
+        casks = [ "TheBoredTeam/boring-notch/boring-notch" ];
+      };
     };
-  };
-  homebrew = {
-    enable = true;
-    onActivation.cleanup = "zap";
-    taps = [ "TheBoredTeam/boring-notch" ];
-    brews = [ "mole" ];
-    casks = [
-      "pgadmin4"
-      "boring-notch"
-      "seafile-client"
-      "tidal"
-      "readdle-spark"
-    ];
+    homebrew = {
+      enable = true;
+      onActivation.cleanup = "zap";
+      taps = [ "TheBoredTeam/boring-notch" ];
+      brews = [ "mole" ];
+      casks = [
+        "pgadmin4"
+        "boring-notch"
+        "seafile-client"
+        "tidal"
+        "readdle-spark"
+      ];
+    };
   };
 }
