@@ -79,7 +79,10 @@
     // {
       agenix-rekey = inputs.agenix-rekey.configure {
         userFlake = self;
-        inherit (self) nixosConfigurations;
+        # Only rekey hosts that actually carry the agenix module
+        nixosConfigurations = inputs.nixpkgs.lib.filterAttrs (
+          _: cfg: cfg.config ? age
+        ) self.nixosConfigurations;
         inherit (self) darwinConfigurations;
       };
     };
