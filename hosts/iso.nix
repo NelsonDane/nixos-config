@@ -42,6 +42,14 @@
             man.enable = false;
             nixos.enable = false;
           };
+
+          # Needed so nix flake check passes, these are replaced in the final build
+          fileSystems."/" = {
+            device = "/dev/disk/by-label/nixos";
+            fsType = "ext4";
+          };
+          boot.loader.grub.enable = true;
+          boot.loader.grub.devices = [ "/dev/sda" ];
         }
       )
     ];
