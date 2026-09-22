@@ -10,7 +10,7 @@ _: {
       ];
       settings = {
         plugin = [ "superpowers@git+https://github.com/obra/superpowers.git" ];
-        skills = inputs.slop + "/skills";
+        skills.paths = [ (inputs.slop + "/skills") ];
         permission = {
           edit = "allow";
           bash = "allow";
