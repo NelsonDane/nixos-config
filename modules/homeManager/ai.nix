@@ -1,5 +1,5 @@
-{ config, ... }: {
-  flake.modules.homeManager.ai = { pkgs, ... }: {
+_: {
+  flake.modules.homeManager.ai = { inputs, pkgs, ... }: {
     programs.opencode = {
       enable = true;
       enableMcpIntegration = true;
@@ -10,7 +10,7 @@
       ];
       settings = {
         plugin = [ "superpowers@git+https://github.com/obra/superpowers.git" ];
-        skills.paths = [ "/home/${config.people.primaryUsername}/slop/skills" ];
+        skills = inputs.slop + "/skills";
         permission = {
           edit = "allow";
           bash = "allow";
