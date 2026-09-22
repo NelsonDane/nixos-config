@@ -26,6 +26,12 @@
         # Disable darwin uninstaller (https://github.com/nix-darwin/nix-darwin/issues/1817)
         system.tools.darwin-uninstaller.enable = false;
 
+        # Exclude /nix from Spotlight indexing
+        system.activationScripts.spotlightExcludeNix.text = ''
+          touch /nix/.metadata_never_index
+          /usr/bin/killall mds >/dev/null 2>&1 || true
+        '';
+
         # Home Manager Modules
         home-manager.users.${config.people.primaryUsername} = {
           imports = [
