@@ -23,6 +23,18 @@ let
     };
 in
 {
-  flake.modules.nixos.git-signing = gitSigningModule;
+  flake.modules.nixos.git-signing = { pkgs, ... }: {
+    imports = [ gitSigningModule ];
+    # NixOS needs the bin in PATH at activation time.
+    age.ageBin = "${pkgs.writeShellScriptBin "age" ''
+      export PATH="${pkgs.age-plugin-yubikey}/bin:$PATH"
+      exec ${pkgs.age}/bin/age "$@"
+    ''}/bin/age";
+    # Service needed to talk to Yubikey
+    services.pcscd = {
+      enable = true;
+      package = pkgs.pcsclite;
+    };
+  };
   flake.modules.darwin.git-signing = gitSigningModule;
 }
