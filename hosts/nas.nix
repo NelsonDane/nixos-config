@@ -63,9 +63,7 @@
         home-manager.users.${config.people.primaryUsername} = {
           imports = [
             config.flake.modules.homeManager.base
-            config.flake.modules.homeManager.git
             config.flake.modules.homeManager.shell
-            config.flake.modules.homeManager.nvim
           ];
         };
       })
