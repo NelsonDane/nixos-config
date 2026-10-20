@@ -16,6 +16,7 @@
       taps = [ "TheBoredTeam/boring-notch" ];
       brews = [ "mole" ];
       casks = [
+        "displaylink"
         "pgadmin4"
         "boring-notch"
         "seafile-client"
