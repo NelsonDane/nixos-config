@@ -27,7 +27,7 @@
           openssh.authorizedKeys.keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN99egqt9QVRlvnRBv7oCwl4qcO6MmaA32Y7y8RC1bhQ"
           ];
-          hashedPassword = "$6$DwA4Gh5R6yoYOsSV$OKy2T3F/O7woBQcVVDAhkYR62pIhsLxC3Ko7FhbhYb5Yb4CQyYhgTe/7YMth8ScxIbYZ3Lc8lAB0a/AnMuxGT.";
+          hashedPassword = config.people.hashedPassword;
         };
         security.sudo.wheelNeedsPassword = false;
 
