@@ -15,6 +15,7 @@ _: {
           edit = "allow";
           bash = "allow";
           webfetch = "allow";
+          external_directory = "allow";
         };
       };
     };
