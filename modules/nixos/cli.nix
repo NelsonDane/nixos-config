@@ -8,6 +8,7 @@ let
       just
       nh
       ncdu
+      ripgrep
       uv
       wget
     ];
