@@ -1,5 +1,5 @@
-let
-  dockerModule = _: {
+_: {
+  flake.modules.nixos.docker = {
     virtualisation.docker = {
       enable = true;
       rootless = {
@@ -13,11 +13,12 @@ let
       };
     };
   };
-in
-{
-  flake.modules.nixos.docker = dockerModule;
+
   flake.modules.darwin.docker = { pkgs, ... }: {
-    imports = [ dockerModule ];
-    environment.systemPackages = with pkgs; [ colima ];
+    environment.systemPackages = with pkgs; [
+      colima
+      docker
+      docker-compose
+    ];
   };
 }

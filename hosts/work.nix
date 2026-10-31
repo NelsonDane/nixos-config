@@ -3,6 +3,7 @@
     modules = [
       inputs.nixos-wsl.nixosModules.default
       config.flake.modules.nixos.base
+      config.flake.modules.nixos.docker
       (
         { pkgs, lib, ... }:
         let
@@ -15,7 +16,6 @@
           users.users.${config.people.primaryUsername} = {
             isNormalUser = true;
             uid = 1001;
-            extraGroups = [ "docker" ];
           };
           programs.nix-ld.enable = true; # Needed for vscode launching
 
@@ -26,8 +26,6 @@
             uv
             python313
           ];
-
-          virtualisation.docker.enable = true;
 
           security.pki.certificates = lib.optional (builtins.pathExists ctcRootCa) (
             builtins.readFile ctcRootCa

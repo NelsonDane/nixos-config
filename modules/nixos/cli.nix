@@ -3,7 +3,6 @@ let
     environment.systemPackages = with pkgs; [
       curl
       dos2unix
-      ethtool
       fastfetch
       htop
       iperf3
@@ -18,6 +17,10 @@ let
   };
 in
 {
-  flake.modules.nixos.cli = cliModule;
+  flake.modules.nixos.cli = { pkgs, ... }: {
+    imports = [ cliModule ];
+    environment.systemPackages = with pkgs; [ ethtool ];
+  };
+
   flake.modules.darwin.cli = cliModule;
 }
