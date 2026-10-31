@@ -31,7 +31,6 @@
         home-manager.users.${config.people.primaryUsername} = {
           imports = [
             config.flake.modules.homeManager.base
-            config.flake.modules.homeManager.firefox
             config.flake.modules.homeManager.git
             config.flake.modules.homeManager.git-signing
             config.flake.modules.homeManager.shell
