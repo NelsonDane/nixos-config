@@ -7,6 +7,7 @@
       config.flake.modules.nixos.base
       config.flake.modules.nixos.discord
       config.flake.modules.nixos.disko
+      config.flake.modules.nixos.docker
       config.flake.modules.nixos.impermanence
       config.flake.modules.nixos.git-signing
       config.flake.modules.nixos.desktop-hardware
@@ -49,14 +50,10 @@
             "wheel"
             "networkmanager"
             "libvirt"
-            "docker"
             "audio"
           ];
           hashedPassword = config.people.hashedPassword;
         };
-
-        # Docker
-        virtualisation.docker.enable = true;
 
         # System packages
         environment.systemPackages = with pkgs; [
