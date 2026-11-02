@@ -65,6 +65,10 @@
       url = "github:nix-systems/default";
     };
 
+    nur = {
+      url = "github:nix-community/NUR";
+    };
+
     slop = {
       url = "github:NelsonDane/slop";
       flake = false;

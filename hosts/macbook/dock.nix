@@ -8,7 +8,7 @@
       system.defaults = {
         dock = {
           persistent-apps = [
-            { app = "/Users/${username}/Applications/Home Manager Apps/Brave Browser.app"; }
+            { app = "/Users/${username}/Applications/Home Manager Apps/Firefox.app"; }
             { app = "/System/Applications/Photos.app"; }
             { app = "/Applications/Spark Desktop.app"; }
             { app = "/System/Applications/Messages.app"; }
