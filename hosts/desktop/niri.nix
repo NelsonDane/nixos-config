@@ -13,12 +13,6 @@ _: {
     };
 
     environment.systemPackages = with pkgs; [
-      (brave.override {
-        commandLineArgs = [
-          "--ozone-platform=wayland"
-          "--enable-features=UseOzonePlatform"
-        ];
-      })
       swaylock
       swayidle
       swaybg
