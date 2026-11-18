@@ -19,6 +19,9 @@ nas:
   # just switch nas
   NIX_SSHOPTS="-i ~/.ssh/nas" nh os switch .#nas --target-host ndane@10.0.2.20 --build-host ndane@10.0.2.20
 
+oracle:
+  NIX_SSHOPTS="-i ~/.ssh/oracle" nh os switch .#oracle --target-host ndane@132.145.195.231 --build-host ndane@132.145.195.231
+
 macbook:
   nh darwin switch .#macbook
 

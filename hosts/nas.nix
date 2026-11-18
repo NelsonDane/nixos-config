@@ -21,7 +21,10 @@
         fileSystems."/mnt/cache" = {
           device = "/dev/disk/by-id/ata-CT1000MX500SSD1_2210E6169A6D";
           fsType = "ext4";
-          options = [ "defaults" "noatime" ];
+          options = [
+            "defaults"
+            "noatime"
+          ];
         };
 
         # Age settings
