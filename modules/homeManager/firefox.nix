@@ -1,15 +1,28 @@
 _: {
   flake.modules.homeManager.firefox = { inputs, pkgs, ... }: {
+    # https://mynixos.com/home-manager/options/programs.firefox
     programs.firefox = {
       enable = true;
-      package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-        extraPolicies = {
-          EnableTrackingProtection = {
-            Value = true;
+
+      # Global Preferences
+      policies = {
+        # Get AI out of my browser
+        AIControls = {
+          Default = {
+            Value = "blocked";
             Locked = true;
-            Cryptomining = true;
-            Fingerprinting = true;
           };
+        };
+        DisableTelemetry = true;
+        DisablePocket = true;
+        DisplayBookmarksToolbar = "never";
+        NoDefaultBookmarks = true;
+        PasswordManagerEnabled = false;
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
         };
       };
 
@@ -28,8 +41,8 @@ _: {
 
         # Preferences
         settings = {
+          # Security
           "privacy.resistFingerprinting" = true;
-          "privacy.trackingprotection.enabled" = true;
           "privacy.trackingprotection.emailtracking.enabled" = true;
           "dom.security.https_only_mode" = true;
           "media.peerconnection.ice.no_host" = true;
@@ -40,8 +53,6 @@ _: {
           "extensions.update.enabled" = false;
 
           # Disable telemetry
-          "datareporting.healthreport.uploadEnabled" = false;
-          "datareporting.policy.dataSubmissionEnabled" = false;
           "app.shield.optoutstudies.enabled" = false;
           "browser.discovery.enabled" = false;
 
@@ -52,6 +63,16 @@ _: {
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
           "browser.newtabpage.activity-stream.showWeather" = false;
           "browser.newtabpage.activity-stream.system.showWeather" = false;
+
+          # Disable Password/autofill
+          "extensions.formautofill.addresses.enabled" = false;
+          "extensions.formautofill.creditCards.enabled" = false;
+
+          # Disable "Suggest Firefox Relay email masks" prompt
+          "signon.firefoxRelay.feature" = "not available";
+
+          # Open previous windows and tabs on startup
+          "browser.startup.page" = 3;
         };
 
         # Extensions
@@ -61,8 +82,9 @@ _: {
           packages = with inputs.nur.legacyPackages.${pkgs.system}.repos.rycee.firefox-addons; [
             bitwarden
             darkreader
-            ublock-origin
             sponsorblock
+            return-youtube-dislikes
+            ublock-origin
           ];
         };
       };
