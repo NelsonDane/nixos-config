@@ -5,6 +5,8 @@ _: {
       exports = ''
         /Shell/media        10.0.2.0/24(rw,async,all_squash,anonuid=1000,anongid=1000,no_subtree_check)
         /Shell/ISOs         10.0.2.5(rw,all_squash,anonuid=1000,anongid=1000,no_subtree_check)
+        # Cache SSD: qbittorrent-downloads staging
+        /mnt/cache/qbittorrent-downloads 10.0.2.0/24(rw,async,all_squash,anonuid=1000,anongid=1000,no_subtree_check)
         # Cluster backups
         /Shell/kube-backup  10.0.2.51(rw,all_squash,anonuid=1000,anongid=1000,no_subtree_check)
         /Shell/kube-backup  10.0.2.52(rw,all_squash,anonuid=1000,anongid=1000,no_subtree_check)

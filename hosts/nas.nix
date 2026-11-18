@@ -17,6 +17,13 @@
         # Set disk ID
         disko.diskID = "usb-JMicron_Tech_DD56419884E16-0:0";
 
+        # Cache SSD for qbittorrent-downloads staging (shared via NFS)
+        fileSystems."/mnt/cache" = {
+          device = "/dev/disk/by-id/ata-CT1000MX500SSD1_2210E6169A6D";
+          fsType = "ext4";
+          options = [ "defaults" "noatime" ];
+        };
+
         # Age settings
         age.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFrninRYQQqXEW794XhWUos1+64Aptz4OGWjTxq/tSm3";
 
